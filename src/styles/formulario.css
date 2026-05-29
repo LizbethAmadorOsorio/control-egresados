@@ -1,0 +1,191 @@
+/* ══════════════════════════════════════════
+   FORMULARIOS  –  formulario.css
+══════════════════════════════════════════ */
+
+.form-shell {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  border: 1px solid var(--borde);
+  overflow: hidden;
+}
+
+/* ── Barra de pasos ── */
+.pasos-bar {
+  display: flex;
+  background: var(--azul);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pasos-bar::-webkit-scrollbar { display: none; }
+
+.paso {
+  flex: 1;
+  min-width: 130px;
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border-right: 1px solid rgba(255,255,255,.09);
+  cursor: pointer;
+  transition: background .2s;
+}
+.paso:last-child { border-right: none; }
+.paso:hover      { background: rgba(255,255,255,.07); }
+.paso.activo     { background: var(--naranja); }
+.paso.listo      { background: rgba(255,255,255,.12); }
+
+.paso-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.paso.activo .paso-num { background: rgba(255,255,255,.3); }
+.paso.listo  .paso-num { background: rgba(255,255,255,.25); }
+
+.paso-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,.6);
+  text-align: center;
+  white-space: nowrap;
+}
+.paso.activo .paso-label { color: white; }
+.paso.listo  .paso-label { color: rgba(255,255,255,.85); }
+
+/* ── Progreso ── */
+.progreso-bar {
+  height: 4px;
+  background: var(--borde);
+}
+.progreso-fill {
+  height: 100%;
+  background: var(--naranja);
+  transition: width .4s ease;
+}
+
+/* ── Cuerpo del formulario ── */
+.form-body {
+  padding: 30px 34px;
+}
+
+.seccion-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--azul);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+  border-bottom: 2px solid var(--borde);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seccion-icono {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: var(--naranja);
+  color: white;
+  font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── Campos ── */
+.campo { margin-bottom: 18px; }
+
+.campo label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+  letter-spacing: .2px;
+}
+
+.campo label .req {
+  color: var(--naranja);
+  margin-left: 2px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--borde);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--texto-dark);
+  background: white;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px rgba(42,82,152,.1);
+}
+
+.campo input.err,
+.campo select.err {
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px rgba(220,38,38,.08);
+}
+
+.campo input:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.campo-error {
+  font-size: 11px;
+  color: var(--rojo);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ── Navegación del wizard ── */
+.form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 34px 28px;
+  border-top: 1px solid var(--borde);
+}
+
+.form-nav-info {
+  font-size: 12px;
+  color: var(--texto-gris);
+}
+
+/* ── Toast de éxito ── */
+.toast-ok {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  background: #15803d;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  z-index: 9999;
+  animation: toastIn .3s ease both;
+}
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .form-body { padding: 20px 16px; }
+  .form-nav  { padding: 14px 16px; }
+  .pasos-bar { min-width: max-content; }
+}

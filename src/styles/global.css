@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ══════════════════════════════════════════
+   VARIABLES INSTITUCIONALES ITSH
+══════════════════════════════════════════ */
+:root {
+  --azul:         #0a1f44;
+  --azul-medio:   #1a3a6e;
+  --azul-claro:   #2a5298;
+  --naranja:      #f97316;
+  --naranja-dark: #ea6a00;
+  --blanco:       #ffffff;
+  --fondo:        #f0f4fa;
+  --borde:        #e2e8f0;
+  --texto-gris:   #64748b;
+  --texto-dark:   #1e293b;
+  --verde:        #16a34a;
+  --rojo:         #dc2626;
+  --amarillo:     #d97706;
+  --sidebar-w:    260px;
+  --topbar-h:     64px;
+  --radio:        12px;
+  --sombra:       0 4px 20px rgba(10,31,68,.10);
+  --sombra-sm:    0 2px 8px  rgba(10,31,68,.07);
+}
+
+/* ══════════════════════════════════════════
+   RESET
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--fondo);
+  color: var(--texto-dark);
+  font-size: 14px;
+  line-height: 1.6;
+  /* overflow-x: hidden; */
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: 'Poppins', sans-serif; cursor: pointer; }
+input, select, textarea { font-family: 'Poppins', sans-serif; }
+
+/* ══════════════════════════════════════════
+   LAYOUT PRINCIPAL
+══════════════════════════════════════════ */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-area {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+  background: var(--fondo);
+  transition: margin-left .3s;
+}
+
+.page-wrap {
+  padding: 32px 36px 60px;
+  max-width: 1300px;
+}
+
+/* ══════════════════════════════════════════
+   ENCABEZADO DE PÁGINA
+══════════════════════════════════════════ */
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--azul);
+  line-height: 1.2;
+}
+
+.page-sub {
+  font-size: 13px;
+  color: var(--texto-gris);
+  margin-top: 3px;
+}
+
+/* ══════════════════════════════════════════
+   BOTONES GLOBALES
+══════════════════════════════════════════ */
+.btn-azul {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--azul); color: white;
+  border: none; border-radius: 10px;
+  padding: 10px 22px; font-size: 13.5px; font-weight: 600;
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-azul:hover { background: var(--azul-medio); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10,31,68,.25); }
+
+.btn-naranja {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--naranja); color: white;
+  border: none; border-radius: 10px;
+  padding: 10px 22px; font-size: 13.5px; font-weight: 600;
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-naranja:hover { background: var(--naranja-dark); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(249,115,22,.3); }
+
+.btn-borde {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--azul);
+  border: 1.5px solid var(--azul); border-radius: 10px;
+  padding: 9px 20px; font-size: 13.5px; font-weight: 600;
+  transition: all .2s;
+}
+.btn-borde:hover { background: var(--azul); color: white; }
+
+.btn-peligro-sm {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #fee2e2; color: #991b1b;
+  border: none; border-radius: 8px;
+  padding: 6px 13px; font-size: 12px; font-weight: 600;
+  transition: background .15s;
+}
+.btn-peligro-sm:hover { background: #fecaca; }
+
+.btn-aviso-sm {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: #fef3c7; color: #92400e;
+  border: none; border-radius: 8px;
+  padding: 6px 13px; font-size: 12px; font-weight: 600;
+  transition: background .15s;
+}
+.btn-aviso-sm:hover { background: #fde68a; }
+
+/* ══════════════════════════════════════════
+   SPINNER
+══════════════════════════════════════════ */
+.spinner-centro {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 70px 0; gap: 14px; color: var(--texto-gris);
+  font-size: 13px;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .main-area  { margin-left: 0; margin-top: var(--topbar-h); }
+  .page-wrap  { padding: 20px 16px 50px; }
+}
