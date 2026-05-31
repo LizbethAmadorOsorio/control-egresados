@@ -117,7 +117,7 @@ export default function EditarEgresado() {
   const [toast, setToast] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/egresados/${id}`)
+    fetch(`https://api-egresado.onrender.com/api/egresados/${id}`)
       .then(r => r.json())
       .then(data => {
         const norm = { ...INIT, ...data };
@@ -171,7 +171,7 @@ export default function EditarEgresado() {
   const guardar = async () => {
     if (!validarPaso()) return;
     try {
-      const res = await fetch(`http://localhost:3000/api/egresados/${id}`, {
+      const res = await fetch(`https://api-egresado.onrender.com/api/egresados/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

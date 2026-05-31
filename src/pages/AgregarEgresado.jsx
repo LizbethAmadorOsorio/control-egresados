@@ -155,7 +155,7 @@ export default function AgregarEgresado() {
         payload.anio_egreso = parseInt(payload.anio_egreso, 10);
       }
 
-      const res = await fetch("http://localhost:3000/api/egresados", {
+      const res = await fetch("https://api-egresado.onrender.com/api/egresados", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

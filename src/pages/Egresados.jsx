@@ -151,7 +151,7 @@ export default function Egresados() {
   const cargar = async () => {
     try {
       setCargando(true);
-      const r = await fetch("http://localhost:3000/api/egresados");
+      const r = await fetch("https://api-egresado.onrender.com/api/egresados");
       setLista(await r.json());
     } catch { alert("No se pudo conectar con el servidor."); }
     finally { setCargando(false); }
@@ -159,7 +159,7 @@ export default function Egresados() {
 
   const confirmarEliminar = async () => {
     if (!confirmDel) return;
-    await fetch(`http://localhost:3000/api/egresados/${confirmDel.id}`, { method: "DELETE" });
+    await fetch(`https://api-egresado.onrender.com/api/egresados/${confirmDel.id}`, { method: "DELETE" });
     setLista(p => p.filter(e => e.no_control !== confirmDel.id));
     setConfirmDel(null);
   };

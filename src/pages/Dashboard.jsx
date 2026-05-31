@@ -161,8 +161,8 @@ export default function Dashboard() {
   const rSexo       = useRef(null); const iSexo       = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/egresados")
-      .then(r => r.json())
+     fetch("https://api-egresado.onrender.com/api/egresados")
+    .then(r => r.json())
       .then(d => { setData(d); setCargando(false); })
       .catch(() => setCargando(false));
   }, []);
