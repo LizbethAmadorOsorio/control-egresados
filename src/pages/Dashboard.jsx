@@ -161,11 +161,19 @@ export default function Dashboard() {
   const rSexo       = useRef(null); const iSexo       = useRef(null);
 
   useEffect(() => {
-     fetch("https://api-egresado.onrender.com/api/egresados")
+  fetch("https://api-egresado.onrender.com/api/egresados")
     .then(r => r.json())
-      .then(d => { setData(d); setCargando(false); })
-      .catch(() => setCargando(false));
-  }, []);
+    .then(d => {
+      console.log("API:", d);
+
+      setData(d.data); 
+      setCargando(false);
+    })
+    .catch(err => {
+      console.error(err);
+      setCargando(false);
+    });
+}, []);
 
   useEffect(() => {
     if (!data.length) return;

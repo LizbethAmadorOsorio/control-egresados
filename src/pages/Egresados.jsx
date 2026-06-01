@@ -149,13 +149,22 @@ export default function Egresados() {
   useEffect(() => { cargar(); }, []);
 
   const cargar = async () => {
-    try {
-      setCargando(true);
-      const r = await fetch("https://api-egresado.onrender.com/api/egresados");
-      setLista(await r.json());
-    } catch { alert("No se pudo conectar con el servidor."); }
-    finally { setCargando(false); }
-  };
+  try {
+    setCargando(true);
+
+    const r = await fetch("https://api-egresado.onrender.com/api/egresados");
+    const d = await r.json();
+
+    console.log("API EGRESADOS:", d);
+
+    setLista(d.data); 
+  } catch (err) {
+    console.error(err);
+    alert("No se pudo conectar con el servidor.");
+  } finally {
+    setCargando(false);
+  }
+};
 
   const confirmarEliminar = async () => {
     if (!confirmDel) return;
